@@ -1,6 +1,20 @@
 import requests
 import json
 URL = "https://api.telegram.org/bot466938120:AAGd4qRUJei4pHyeKkOcZfsvwC6JlDBtiCA/getUpdates"
+lesson_time = [['9:00','9:40'],['9:50','10:30'],['10:40','11:20'],['11:35','12:15'],['12:50','13:30'],['13:40','14:20'],['15:05','15:45'],['15:55','16:35'],['16:45','17:25'],['17:30','18:10']]
+schedule = {
+    "monday": {
+        "lesson_1":{
+            "Русский/Литература":{
+                'teacher':{
+                    
+                }
+
+            }
+            "Русский/Литература":
+        }
+    }
+}
 
 response = requests.get(URL)
 updates = response.json()
@@ -8,7 +22,6 @@ def handle_message(message, nickname="user"):
     '''handles message: 
     @message - text of recieved message
     @nickname - nickname of sender
-
     @returns - text of response
     '''
     message = updates["response"][len(updates["response"])-1]["text"]
