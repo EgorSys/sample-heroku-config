@@ -44,6 +44,7 @@ def dow(w):
 def handle_message(message, nickname="user"):
     message = message[:-1]
     req = message.split()[-1]
+    print("recieved:", message)
     
     if req in ["сегодня", "завтра"]:
         theday = dow(datetime.now().weekday())
@@ -77,7 +78,6 @@ def handle_message(message, nickname="user"):
         starttime = lesson_time[int(message.split()[1])][0]
         return 'В '+str(starttime)
     
-
 if __name__ == "__main__":
     # dirty python magic, will talk about on the next lesson
     # just ignore for now
@@ -91,3 +91,4 @@ if __name__ == "__main__":
             print(*ans, sep = ', ')
         else:
             print(ans)
+ 
