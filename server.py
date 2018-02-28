@@ -11,4 +11,4 @@ while True:
         lui = elem["update_id"]+1
         chat_id = elem["message"]["chat"]["id"]
 
-        requests.post("https://api.telegram.org/bot466938120:AAGd4qRUJei4pHyeKkOcZfsvwC6JlDBtiCA/sendMessage", params={ "chat_id": chat_id, "text": text} )
+        requests.post("https://api.telegram.org/bot466938120:AAGd4qRUJei4pHyeKkOcZfsvwC6JlDBtiCA/sendMessage", params={ "chat_id": chat_id, "text": ans} )
