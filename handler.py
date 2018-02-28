@@ -51,9 +51,11 @@ def handle_message(message, nickname="user"):
         
         if req == "сегодня":
             message = message[:len(message)-len(req)-1] + " в " + theday
+            req = "Сегодня"
         else:
             message = message[:len(message)-len(req)-1] + " в " + theday
-    
+            req = "Завтра"
+ 
     if message[:5] == "Что в":
         day = message.split()[2]
         return schedule[day]["lessons"]
@@ -68,12 +70,15 @@ def handle_message(message, nickname="user"):
     if message[:16] == "Сколько уроков в":
         day = message.split()[3]
         number = len(schedule[day]["lessons"])
-        if number >= 5:
-            return req + " " + str(number) + " уроков"
-        elif number >= 2:
-            return req + " " + str(number) + " урока"
+        if req not in ["Сегодня", "Завтра"]:
+            if number >= 5:
+                return "В " + req + " " + str(number) + " уроков"
+            elif number >= 2:
+                return "В" + req + " " + str(number) + " урока"
+            else:
+                return "В" + req + " " + str(number) + " урок"
         else:
-            return req + " " + str(number) + " урок"
+            return req + " " + str(number) + " уроков"
     if message[:6] == "Когда " and int(message[6]) < 10:
         starttime = lesson_time[int(message.split()[1])][0]
         return 'В '+str(starttime)
