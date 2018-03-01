@@ -53,7 +53,7 @@ def handle_message(message, nickname="user"):
             message = message[:len(message)-len(req)-1] + " в " + theday
             req = "Сегодня"
         else:
-            message = message[:len(message)-len(req)-1] + " в " + theday
+            message = message[:len(message)-len(req)-1] + " в " + dow(datetime.now().weekday()+1)
             req = "Завтра"
  
     if message[:5] == "Что в":
