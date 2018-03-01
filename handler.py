@@ -74,9 +74,9 @@ def handle_message(message, nickname="user"):
             if number >= 5:
                 return "В " + req + " " + str(number) + " уроков"
             elif number >= 2:
-                return "В" + req + " " + str(number) + " урока"
+                return "В " + req + " " + str(number) + " урока"
             else:
-                return "В" + req + " " + str(number) + " урок"
+                return "В " + req + " " + str(number) + " урок"
         else:
             return req + " " + str(number) + " уроков"
     if message[:6] == "Когда " and int(message[6]) < 10:
