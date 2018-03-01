@@ -78,7 +78,12 @@ def handle_message(message, nickname="user"):
             else:
                 return "В " + req + " " + str(number) + " урок"
         else:
-            return req + " " + str(number) + " уроков"
+            if number >= 5:
+                return req + " " + str(number) + " уроков"
+            elif number >= 2:
+                return req + " " + str(number) + " урока"
+            else:
+                return req + " " + str(number) + " урок"
     if message[:6] == "Когда " and int(message[6]) < 10:
         starttime = lesson_time[int(message.split()[1])][0]
         return 'В '+str(starttime)
